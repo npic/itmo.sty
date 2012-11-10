@@ -1,0 +1,78 @@
+% itmo.sty
+% Author: Nikita Pichugin (pichuginn@gmail.com)
+
+\def\filename{itmo}
+\def\fileversion{1.1}
+\def\filedate{2012/11/10}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage[pdftex]{graphicx}
+
+\ProvidesPackage{\filename}
+
+\newcommand{\kafedra}[1]{\def\@kafedra{#1}}
+\kafedra{}
+
+\newcommand{\variant}[1]{\def\@variant{#1}}
+\variant{}
+
+\newcommand{\authors}[1]{\def\@authors{#1}}
+\authors{}
+
+\newcommand{\prepod}[1]{\def\@prepod{#1}}
+\prepod{}
+
+\renewcommand{\@maketitle}
+{
+    \begin{titlepage}
+    
+    \begin{center}
+    
+    {\small Национальный исследовательский университет \\ информационных технологий, механики и оптики\\
+    \ifx \@kafedra \@empty
+        \relax
+    \else
+        \vspace{1em}
+        \@kafedra
+    \fi}
+    
+    \vfill
+    
+    {\LARGE {\bf \@title \\}}
+    \ifx \@variant \@empty
+        \relax
+    \else
+        \vspace{1em}
+        {\large {\bf \@variant \\}}
+    \fi
+    \end{center}
+
+    \vfill
+    
+    \begin{flushright}
+        {\normalsize
+        \ifx \@authors \@empty
+            Выполнил:\\
+            \@author\\
+        \else
+            Выполнили:\\
+            \@authors\\
+        \fi
+        \vspace{1em}
+        Преподаватель:\\
+        \@prepod\\}
+    \end{flushright}
+
+    \vfill
+    
+    \begin{center}
+        {\small Санкт-Петербург \\ \the\year}
+    \end{center}
+
+    \end{titlepage}
+    \newpage
+    \setcounter{page}{2}
+}
+
