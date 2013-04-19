@@ -1,4 +1,4 @@
-all: Makefile itmo.sty example.tex
+all: Makefile itmo.sty example.tex sample1.png
 	pdflatex example.tex
 	pdflatex example.tex
 
